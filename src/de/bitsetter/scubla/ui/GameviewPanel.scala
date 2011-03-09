@@ -92,6 +92,15 @@ class GameviewPanel extends JPanel {
       }
     }
 
+    def getTargetPos(me:Vec2, meDir:Float, you:Vec2, youDir:Float) : Vec2 = {
+      // me zum ursprung machen
+      var pos:Vec2 = you - me
+      var dir:Vec2 = Vec2(math.cos(youDir), math.sin(youDir))
+      var time:Float = pos.length / shotSpeed
+
+      pos = pos + (dir * time * pMe.speed)
+    }
+
     psx = ppos.x // ps.pos.x
     psy = ppos.y // ps.pos.y
 
